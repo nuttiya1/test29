@@ -1,0 +1,9 @@
+<html>
+<title> Quiz </title>
+  <form action="" method="POST">
+  {% csrf_token %}
+  {% for ques in question %}
+    <h3> {{ question_text }} </h3>
+  {% endfor %}
+
+</html>
