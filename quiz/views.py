@@ -1,9 +1,11 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from .models import Ans, Question
 
 # Create your views here.
 def homepage(request):
-     return render(request, 'homepage.html')
+    ques_all = Question.objects.all()
+    return render(request, 'homepage.html', {'ques_all': ques_all})
 
 def vote(request, question_id):
     return render(request, 'vote.html')
