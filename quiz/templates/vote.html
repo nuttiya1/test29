@@ -1,10 +1,10 @@
 <html>
 <title> Quiz </title>
-  <!-- <form action="" method="POST">
-  {% csrf_token %}
-  {% for ques in ques_all %}
-    <h2>{{ ques.question_text}}</h2>
-  {% endfor %} -->
+  <h2> {{ question.question_text }} </h2>
+
+  {% for answer in question.ans_set.all %}
+    <li> {{ answer.ans_text}} {{ answer.votes }} vote{{ answer.votes|pluralize }} </li>
+  {% endfor %}
 
 </form>
 </html>
