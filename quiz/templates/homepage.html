@@ -1,12 +1,16 @@
 <html>
 <title> Quiz </title>
-  <form action="" method="POST">
+  <form action="/vote" method="POST">
   {% csrf_token %}
   {% for ques in ques_all %}
-    <h3>{{ ques.question_text}}</h3>
-    <input type="radio" name="false" value="{{ques_false}}"> False </radio><br>
-    <input type="radio" name="true" value="{{ques_true}}"> True </radio><br><br>
+    <h2>{{ ques.question_text}}</h2>
+    {% for answer in ques.ans_set.all %}
+      <li>{{ answer.ans_text }}</li>
+    {% endfor %}
   {% endfor %}
+    <!-- <input type="radio" name="false" value="{{ques_false}}"> False </radio><br>
+    <input type="radio" name="true" value="{{ques_true}}"> True </radio><br><br> -->
+    <br>
     <button type="submit" name="submit"> Submit </button>
 
 

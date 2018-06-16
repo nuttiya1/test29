@@ -28,4 +28,4 @@ class HomePageTest(TestCase):
         self.client.get('/')
         self.assertEqual(Question.objects.count(), 0)
 
-#    def test_can_save_vote(self):
+    def test_can_save_vote(self):

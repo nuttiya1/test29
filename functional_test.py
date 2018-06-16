@@ -26,7 +26,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start(self):
         self.browser.get('http://localhost:8000')
         self.assertIn('Quiz', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h3').text
+        header_text = self.browser.find_element_by_tag_name('h2').text
         self.assertIn('1 + 1 = 3', header_text)
 
 
