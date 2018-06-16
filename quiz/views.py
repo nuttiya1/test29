@@ -7,5 +7,5 @@ def homepage(request):
     ques_all = Question.objects.all()
     return render(request, 'homepage.html', {'ques_all': ques_all})
 
-def vote(request, question_id):
+def vote(request):
     return render(request, 'vote.html')

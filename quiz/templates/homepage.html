@@ -5,7 +5,8 @@
   {% for ques in ques_all %}
     <h2>{{ ques.question_text}}</h2>
     {% for answer in ques.ans_set.all %}
-      <li>{{ answer.ans_text }}</li>
+      <input type="radio" name="answer" id="answer{{forloop.counter}}" value="{{answer.id}}" />
+      <label for="answer{{forloop.counter}}"> {{ answer.ans_text }} </label><br>
     {% endfor %}
   {% endfor %}
     <!-- <input type="radio" name="false" value="{{ques_false}}"> False </radio><br>
