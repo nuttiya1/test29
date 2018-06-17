@@ -2,6 +2,7 @@ from django.template.loader import render_to_string
 from django.test import TestCase
 from django.http import HttpRequest
 from django.urls import resolve
+from django.test import Client
 from quiz.views import homepage
 from quiz.models import Question, Ans
 
@@ -28,4 +29,4 @@ class HomePageTest(TestCase):
         self.client.get('/')
         self.assertEqual(Question.objects.count(), 0)
 
-    def test_can_save_vote(self):
+    # def test_can_save_vote(self):

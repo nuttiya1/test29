@@ -5,6 +5,7 @@
   {% for answer in question.ans_set.all %}
     <li> {{ answer.ans_text}} {{ answer.votes }} vote{{ answer.votes|pluralize }} </li>
   {% endfor %}
-
+  <br>
+  <a href='/' id="id_back"> Back </a>
 </form>
 </html>

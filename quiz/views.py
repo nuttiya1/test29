@@ -8,7 +8,7 @@ def homepage(request):
     return render(request, 'homepage.html', {'ques_all': ques_all})
 
 def vote(request):
-    question = Question.objects.get(pk=2)
+    question = Question.objects.get()
     try:
         selected_answer = question.ans_set.get(pk=request.POST['answer'])
     except (KeyError, Ans.DoesNotExist):

@@ -5,20 +5,13 @@
   {% for ques in ques_all %}
     <h2>{{ ques.question_text}}</h2>
     {% for answer in ques.ans_set.all %}
-      <input type="radio" name="answer" id="answer{{forloop.counter}}" value="{{answer.id}}" />
-      <label for="answer{{forloop.counter}}"> {{ answer.ans_text }} </label><br>
+      <button type="submit" name="answer" id="{{forloop.counter}}" value="{{answer.id}}"> {{ answer.ans_text }} </button><br>
+
+      <!-- <input type="radio" name="answer" id="id_answer" value="{{answer.id}}" />
+      <label id="id_label" for="answer{{forloop.counter}}"> {{ answer.ans_text }} </label><br> -->
     {% endfor %}
   {% endfor %}
     <!-- <input type="radio" name="false" value="{{ques_false}}"> False </radio><br>
     <input type="radio" name="true" value="{{ques_true}}"> True </radio><br><br> -->
-    <br>
-    <button type="submit" name="submit"> Submit </button>
-
-
-  <!-- {% for choice in question %}
-    <input type="radio" name="choice" id="chi=oice{{ forloopcounter }}" value"{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ ans.ans_text}}
-  {% endfor %} -->
-
 </form>
 </html>
