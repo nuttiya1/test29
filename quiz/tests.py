@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.urls import resolve
 from django.test import Client
-from quiz.views import homepage, vote
+from quiz.views import homepage
 from quiz.models import Question, Ans
 
 class HomePageTest(TestCase):
