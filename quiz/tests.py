@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.urls import resolve
 from django.test import Client
-from quiz.views import homepage
+from quiz.views import homepage, vote
 from quiz.models import Question, Ans
 
 class HomePageTest(TestCase):
@@ -21,12 +21,12 @@ class HomePageTest(TestCase):
 
         self.assertTemplateUsed(response, 'homepage.html')
 
-    def test_user_home_template(self):
-        response = self.client.get('/')
-        self.assertTemplateUsed(response, 'homepage.html')
+    def test_only_save_question_ans_vote(self):
+        Question.objects.create( question_text = "1 + 1 = 3 ?")
+        q = Question.objects.first()
+        self.assertEqual(q.question_text, '1 + 1 = 3 ?')
+        self.assertEqual(Question.objects.count(), 1)
 
-    def test_only_saves_items_when_necessary(self):
-        self.client.get('/')
-        self.assertEqual(Question.objects.count(), 0)
-
-    # def test_can_save_vote(self):
+        q.ans_set.create(ans_text='True', votes=0)
+        q.ans_set.create(ans_text='False', votes=0)
+        self.assertEqual(q.ans_set.count(), 2)
